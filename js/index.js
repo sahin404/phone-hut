@@ -40,7 +40,7 @@ function showInformation(phones) {
                       <h2 class="card-title">${phone.phone_name}</h2>
                       <p>If a dog chews shoes whose shoes does he choose?</p>
                       <div class="card-actions justify-center">
-                        <button class="btn btn-primary">Show Details</button>
+                        <button onclick="modalImplementation('${phone.slug}')" class="btn btn-primary">Show Details</button>
                       </div>
                     </div>
         `;
@@ -49,6 +49,29 @@ function showInformation(phones) {
   });
 }
 
+//modalImplementation
+
+const modalImplementation = async(slug)=>{
+  const phone  = await fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
+  const phoneDetails = await phone.json();
+  setModal(phoneDetails.data);
+  my_modal.showModal();
+
+}
+
+// Set Modal
+function setModal(phone){
+  // console.log(phone);
+  const innerModal = document.getElementById('inner-modal');
+  innerModal.innerHTML = `
+  <img src="${phone.image}"></img>
+  <h1 class = "text-3xl my-3">${phone.name}</h1>
+  <h1> <span class = "font-bold">Storage: </span>${phone?.mainFeatures?.memory}</h1>
+  <h1><span class = "font-bold">Display Size: </span> ${phone?.mainFeatures?.displaySize}</h1>
+  <h1><span class = "font-bold">Chipset: </span> ${phone?.mainFeatures?.chipSet}</h1>
+  
+  `
+}
 // Show More button
 function showMoreButton(check) {
   const showMore = document.getElementById("show-more-button");
