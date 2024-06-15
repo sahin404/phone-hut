@@ -1,16 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="max-w-7xl mx-auto">
+    <header>
+      <section class="text-center mt-3">
+        <h1 class="text-3xl">Search Your Phone</h1>
+        <div class="mt-3">
+          <input
+            id="input-text"
+            type="text"
+            placeholder="Search Your Phone"
+            class="input input-bordered w-1/4"
+          />
+          <button
+            onclick="searchPhone()"
+            class="btn btn-primary w-28 text-xl text-white"
+          >
+            Seach
+          </button>
+        </div>
+      </section>
+      <!--Not Found Section -->
+      <section
+        id="not-found"
+        class="text-5xl font-bold mt-12 text-center hidden"
+      >
+        Not Found!
+      </section>
 
+      <!-- Loading Section -->
+       <div id="loading" class="mt-12 text-center hidden">
+        <span class="loading loading-spinner loading-lg"></span>
+       </div>
+    </header>
+
+    <main class="mt-10">
+      <!-- Card Section -->
+      <section
+        id="card-container"
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5"
+      ></section>
+    </main>
+
+    <footer>
+      <!-- show more Button -->
+      <section id="show-more-button" class="text-center hidden">
+        <button class="btn btn-warning mt-5 text-xl">Warning</button>
+      </section>
+    </footer>
 
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
